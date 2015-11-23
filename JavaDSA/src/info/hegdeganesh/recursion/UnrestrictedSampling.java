@@ -3,14 +3,14 @@ package info.hegdeganesh.recursion;
 import info.hegdeganesh.commonutils.CommonUtils;
 
 /**
- * Created by Hegade on 22-11-2015.
+ * Created by Ganesh Hegde on 22-11-2015.
+ * This program prints the unrestricted set of all integers upto the number entered including duplicate permutations.
+ *
  */
 public class UnrestrictedSampling {
 
-    //size of the word entered
+  //size of the permutation set
     private static int size = 0;
-
-    private static char[] arrChar;
     private static int[] column;
 
     //count the permutations and display for convenience
@@ -18,23 +18,28 @@ public class UnrestrictedSampling {
 
     public static void main(String[] args){
 
-        System.out.print("Enter a word or string of characters: "); //get the word
+        System.out.print("Enter a positive number: "); //get the word
         String input = new CommonUtils().getString();
 
         size = input.length(); //size of the input
 
-        if(size == 0){
-            System.out.print("Please enter something");
+        try{
+            size  = Integer.parseInt(input);
+
+            if(size <= 0 ){
+                System.out.print("Please enter a positive number \n");
+                return;
+            }
+        }catch (Exception e){
+            System.out.print("Please enter a positive integer");
             return;
         }
 
-        arrChar = new char[size];
         column = new int[size];
-
         for(int i=0;i<size;i++){
-            arrChar[i] = input.charAt(i);
             column[i] = -1;
         }
+
         sample(0);
     }//main ends
 
