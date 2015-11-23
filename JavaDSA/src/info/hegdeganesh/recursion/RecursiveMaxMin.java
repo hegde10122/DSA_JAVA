@@ -1,9 +1,12 @@
 package info.hegdeganesh.recursion;
 
 /**
- * Created by Hegade on 23-11-2015.
+ * Created by Ganesh Hegde on 23-11-2015.
  */
 public class RecursiveMaxMin {
+
+    //recursive way to find max and min values in an array without using loop
+    //MAX_SIZE is the size of array which contains random values at runtime
 
     private static final int MAX_SIZE = 10;
     private static int arrayValues[];
@@ -17,14 +20,17 @@ public class RecursiveMaxMin {
                 System.out.print("\t"+arrayValues[y]);
             }
 
+       //findMax -- find maximum value
       int maxValue =  findMax(arrayValues,MAX_SIZE,0);
       System.out.println("\nMaximum value is " + maxValue);
 
+      //findMin -- find minimum value
       int minValue = findMin(arrayValues,MAX_SIZE,0);
         System.out.println("\nMinimum value is " + minValue);
 
     }//end main
 
+    //-------------------------------------------------------------------------------------------------------------------
     private static int findMax(int array[],int size,int index){
 
         int maximum;
@@ -42,6 +48,7 @@ public class RecursiveMaxMin {
        return(array[index] > maximum) ? array[index] : maximum;
     }//findMax
 
+    //-------------------------------------------------------------------------------------------------------------------
     private static int findMin(int array[],int size,int index){
 
         int minimum;
@@ -57,7 +64,7 @@ public class RecursiveMaxMin {
         minimum = findMin(array,size,index+1);
 
         return(array[index] < minimum) ? array[index] : minimum;
-    }//findMax
+    }//findMin
 
-
+//-------------------------------------------------------------------------------------------------------------------
 }//end class
