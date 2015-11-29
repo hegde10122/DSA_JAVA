@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
  * Created by Hegade on 20-11-2015.
  */
 public class CommonUtils {
-
+//---------------------------------------------------------------------------------------------------------------------
     public static String getString(){
 
         InputStreamReader is = new InputStreamReader(System.in);
@@ -23,4 +23,16 @@ public class CommonUtils {
         }
        return string;
     }
+//---------------------------------------------------------------------------------------------------------------------
+    public static char getChar(){
+        String s = getString();
+        return s.charAt(0);
+    }
+//---------------------------------------------------------------------------------------------------------------------
+
+public static int getInt() throws IOException{
+    String s = getString();
+    return Integer.parseInt(s);
+}
+//---------------------------------------------------------------------------------------------------------------------
 }//class ends
