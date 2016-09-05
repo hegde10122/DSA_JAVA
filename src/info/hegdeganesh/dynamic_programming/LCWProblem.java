@@ -3,7 +3,7 @@ package info.hegdeganesh.dynamic_programming;
 import java.util.Scanner;
 
 /**
- * Created by Hegade on 05-09-2016.
+ * Created by GR Hegde on 05-09-2016.
  */
 
 //Longest common subword problem
@@ -45,7 +45,7 @@ public static void main(String[] args){
     private static int lcw(String str1,String str2){
 
         int len  = 0;/// value is 0 initially
-        int suffix1 = Integer.MIN_VALUE;
+        int index = Integer.MIN_VALUE;
 
         int m = str1.length();
         int n = str2.length();
@@ -62,14 +62,19 @@ public static void main(String[] args){
                     lcwMatrix[r][c] = 0; // reset and start afresh
                 if (lcwMatrix[r][c] > len) {
                     len = lcwMatrix[r][c]; //value of the length
-                    suffix1 = r; //suffix of the first string where the LCW begins
+                    index = r; //suffix of the first string where the LCW begins
                 }
             }
         }
 
-        if(suffix1!=Integer.MIN_VALUE)// print the LCW from the substring of the first string
-        System.out.println("The longest common subword or substring is : "+str1.substring(suffix1,suffix1 + len));
+        if(index!=Integer.MIN_VALUE)// print the LCW from the substring of the first string
+        System.out.println("The longest common subword or substring is : "+str1.substring(index,index + len));
 
         return len;
     }
+
+    /*
+    * The dynamic programmming approach gives us O(mn). We need to fill a table of size O(mn) to achieve this.
+    * Each table entry takes constant time to compute
+    * */
 }//class ends
