@@ -1,6 +1,6 @@
 package info.hegdeganesh.stacks;
-
 import info.hegdeganesh.commonutils.StackEmptyException;
+
 
 /**
  * Created by Hegade on 01-12-2015.
@@ -55,5 +55,8 @@ public class NodeStack implements Stack {
         size--;
         return temp;
     }
+
+
+
 //----------------------------------------------------------------------------------------------------------------------
 }//classe ends
