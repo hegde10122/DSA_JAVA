@@ -54,24 +54,22 @@ public static void main(String[] args){
         int[][] lcwMatrix = new int[m + 1][n + 1];
 
         //variables r --- row goes from top to bottom and c --- column goes from left to right
-        for(int c = n - 1; c >= 0 ;c--) {
+        for(int c = n - 1; c >= 0 ;c--) { //we start backwards
             for (int r = m - 1; r >= 0; r--) {
                 if (str1.charAt(r) == str2.charAt(c)) {
-                    lcwMatrix[r][c] = 1 + lcwMatrix[r + 1][c + 1];
+                    lcwMatrix[r][c] = 1 + lcwMatrix[r + 1][c + 1];//dynamic programming --- inductive structure
                 } else
-                    lcwMatrix[r][c] = 0;
+                    lcwMatrix[r][c] = 0; // reset and start afresh
                 if (lcwMatrix[r][c] > len) {
-                    len = lcwMatrix[r][c];
-                    suffix1 = r;
+                    len = lcwMatrix[r][c]; //value of the length
+                    suffix1 = r; //suffix of the first string where the LCW begins
                 }
             }
         }
 
-        if(suffix1!=Integer.MIN_VALUE)
+        if(suffix1!=Integer.MIN_VALUE)// print the LCW from the substring of the first string
         System.out.println("The longest common subword or substring is : "+str1.substring(suffix1,suffix1 + len));
 
         return len;
     }
-
-
 }//class ends
