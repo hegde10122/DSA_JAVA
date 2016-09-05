@@ -56,20 +56,13 @@ public static void main(String[] args){
             for (int r = m - 1; r >= 0; r--) {
                 if (str1.charAt(r) == str2.charAt(c)) {
                     lcsMatrix[r][c] = 1 + lcsMatrix[r + 1][c + 1];//dynamic programming --- inductive structure
-                   // subSequence += str1.charAt(r);
-                    //System.out.println(subSequence + " r = "+r+" c = "+c);
-                    //break;
                 } else
                 {
                     lcsMatrix[r][c] =  Math.max(lcsMatrix[r + 1][c], lcsMatrix[r][c + 1]);
                 }
             }
         }
-
-       /* if(lcsMatrix[0][0]!=0)// print the LCS from the substring of the first string
-            System.out.println("The longest common subsequence is : "+subSequence);
-*/
-        return lcsMatrix[0][0];
+        return lcsMatrix[0][0];//LCS value
     }
 
 }//class ends
